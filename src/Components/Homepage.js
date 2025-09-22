@@ -6,13 +6,27 @@ const thrustAreasData = [
   { title: "Dental Innovation", img: "/images/Dental Innovation.jpg" },
   { title: "Biotech", img: "/images/Biotechnology.jpg" },
   { title: "Diagnosis and Medical Healthcare", img: "/images/Healthcar.jpg" },
-  { title: "Food Tech", img: "/images/FoodTech.jpg" }, // Add the new item here
+  { title: "Food Tech", img: "/images/FT.jpg" },
+];
+
+const supportedByData = [
+  { img: "/images/KTech.png" },
+  { img: "/images/MAHE.png" },
+  { img: "/images/BiRAC.png" },
+];
+
+const scrollingPartnersData = [
+  { img: "images/MUTBI.png" },
+  { img: "images/DPIIT.jpeg" },
+  { img: "images/Seed Funding.jpeg" },
+  { img: "images/DST Nidhi.jpeg" },
+  { img: "images/Startup Karnataka.png" },
+  { img: "images/HDFC.jpg" },
 ];
 
 const Homepage = () => {
-  // Styles
   const containerStyle = {
-    backgroundColor: "#bbd4f9ff",
+    backgroundColor: "#f2f2f2ff",
     padding: "50px 20px",
     textAlign: "center",
     fontFamily: "Times New Roman, Serif",
@@ -29,6 +43,12 @@ const Homepage = () => {
     textAlign: "center",
   };
 
+  const supportedByHeaderStyle = {
+    ...headerStyle,
+    marginTop: "60px",
+    marginBottom: "30px",
+  };
+
   const mainGridStyle = {
     display: "flex",
     flexDirection: "column",
@@ -39,7 +59,7 @@ const Homepage = () => {
   const rowStyle = {
     display: "flex",
     justifyContent: "center",
-    gap: "30px",
+    gap: "20px", // reduced distance between circles
   };
 
   const cardWrapperStyle = {
@@ -50,7 +70,7 @@ const Homepage = () => {
   };
 
   const cardStyle = {
-    backgroundColor: "#3673f8ff",
+    backgroundColor: "#ffffffff",
     width: "150px",
     height: "150px",
     cursor: "pointer",
@@ -71,16 +91,70 @@ const Homepage = () => {
     marginTop: "10px",
     fontWeight: "bold",
     fontSize: "16px",
-    color: "#0b2c61",
+    color: "#05445e",
     textAlign: "center",
+  };
+
+  const supportedByImageWrapperStyle = {
+    width: "250px",
+    height: "125px",
+    overflow: "hidden",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0,0,0,0.15)",
+    transition: "transform 0.3s ease-in-out",
+    cursor: "pointer",
+  };
+
+  const supportedByImgStyle = {
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
+    backgroundColor: "white",
+    transition: "transform 0.1s ease-in-out",
+  };
+
+  const scrollingContainerStyle = {
+    overflow: "hidden",
+    marginTop: "60px",
+    marginBottom: "20px",
+    width: "100%",
+    background: "#f2f2f2ff",
+  };
+
+  const scrollingInnerStyle = {
+    display: "flex",
+    width: "max-content",
+    animation: "scroll 20s linear infinite",
+  };
+
+  const scrollingImageWrapperStyle = {
+    flex: "0 0 auto",
+    margin: "0 20px",
+    width: "200px",
+    height: "100px",
+  };
+
+  const scrollingImgStyle = {
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
   };
 
   return (
     <div style={containerStyle}>
-      {/* Thrust Areas Section */}
-      <h2 style={headerStyle}>THRUST AREAS</h2>
+      {/* Keyframes animation */}
+      <style>
+        {`
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+        `}
+      </style>
+
+      {/* Thrust Areas */}
+      <h2 style={headerStyle}>Thrust Areas</h2>
       <div style={mainGridStyle}>
-        {/* Top Row (3 items) */}
         <div style={rowStyle}>
           {thrustAreasData.slice(0, 3).map((item, index) => (
             <div key={index} style={cardWrapperStyle}>
@@ -103,7 +177,6 @@ const Homepage = () => {
             </div>
           ))}
         </div>
-        {/* Bottom Row (3 items) */}
         <div style={rowStyle}>
           {thrustAreasData.slice(3, 6).map((item, index) => (
             <div key={index} style={cardWrapperStyle}>
@@ -123,6 +196,35 @@ const Homepage = () => {
                 <img src={item.img} alt={item.title} style={imgStyle} />
               </div>
               <div style={titleStyle}>{item.title}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
+
+      {/* Supported By */}
+      <h2 style={supportedByHeaderStyle}>With Support From</h2>
+      <div style={{ display: "flex", justifyContent: "center", gap: "50px" }}>
+        {supportedByData.map((item, index) => (
+          <div
+            key={index}
+            style={supportedByImageWrapperStyle}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            <img src={item.img} alt={`Partner ${index + 1}`} style={supportedByImgStyle} />
+          </div>
+        ))}
+      </div>
+
+      {/* Scrolling Partners */}
+      <h2 style={supportedByHeaderStyle}>Together We Grow</h2>
+      <div style={scrollingContainerStyle}>
+        <div style={scrollingInnerStyle}>
+          {scrollingPartnersData.concat(scrollingPartnersData).map((item, index) => (
+            <div key={index} style={scrollingImageWrapperStyle}>
+              <img src={item.img} alt={`Partner ${index + 1}`} style={scrollingImgStyle} />
             </div>
           ))}
         </div>
