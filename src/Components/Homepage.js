@@ -6,9 +6,11 @@ const thrustAreasData = [
   { title: "Dental Innovation", img: "/images/Dental Innovation.jpg" },
   { title: "Biotech", img: "/images/Biotechnology.jpg" },
   { title: "Diagnosis and Medical Healthcare", img: "/images/Healthcar.jpg" },
+  { title: "Food Tech", img: "/images/FoodTech.jpg" }, // Add the new item here
 ];
 
 const Homepage = () => {
+  // Styles
   const containerStyle = {
     backgroundColor: "#bbd4f9ff",
     padding: "50px 20px",
@@ -23,7 +25,7 @@ const Homepage = () => {
     marginBottom: "40px",
     marginTop: "10px",
     fontWeight: "bold",
-    color: "#0b2c61", // dark blue text
+    color: "#0b2c61",
     textAlign: "center",
   };
 
@@ -34,14 +36,7 @@ const Homepage = () => {
     gap: "30px",
   };
 
-  // Styles for the individual rows
-  const topRowStyle = {
-    display: "flex",
-    justifyContent: "center",
-    gap: "30px",
-  };
-
-  const bottomRowStyle = {
+  const rowStyle = {
     display: "flex",
     justifyContent: "center",
     gap: "30px",
@@ -59,8 +54,8 @@ const Homepage = () => {
     width: "150px",
     height: "150px",
     cursor: "pointer",
-    borderRadius: "50%", // make circle
-    overflow: "hidden", // keep image inside the circle
+    borderRadius: "50%",
+    overflow: "hidden",
     boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
     transition: "transform 0.3s, filter 0.3s",
   };
@@ -76,16 +71,17 @@ const Homepage = () => {
     marginTop: "10px",
     fontWeight: "bold",
     fontSize: "16px",
-    color: "#0b2c61", // dark blue text
+    color: "#0b2c61",
     textAlign: "center",
   };
 
   return (
     <div style={containerStyle}>
+      {/* Thrust Areas Section */}
       <h2 style={headerStyle}>THRUST AREAS</h2>
       <div style={mainGridStyle}>
-        {/* Top row with 3 images */}
-        <div style={topRowStyle}>
+        {/* Top Row (3 items) */}
+        <div style={rowStyle}>
           {thrustAreasData.slice(0, 3).map((item, index) => (
             <div key={index} style={cardWrapperStyle}>
               <div
@@ -107,10 +103,9 @@ const Homepage = () => {
             </div>
           ))}
         </div>
-
-        {/* Bottom row with 2 images */}
-        <div style={bottomRowStyle}>
-          {thrustAreasData.slice(3, 5).map((item, index) => (
+        {/* Bottom Row (3 items) */}
+        <div style={rowStyle}>
+          {thrustAreasData.slice(3, 6).map((item, index) => (
             <div key={index} style={cardWrapperStyle}>
               <div
                 style={cardStyle}
