@@ -14,7 +14,7 @@ const Navbar = () => {
     position: "fixed",
     top: 0,
     left: 0,
-    width: "98%", // ⭐ changed from 98% → 100% for full width
+    width: "96%", // full width
     zIndex: 999,
   };
 
@@ -24,7 +24,7 @@ const Navbar = () => {
     cursor: "pointer",
     padding: "10px 15px",
     fontSize: "16px",
-    color: "#fff", // ⭐ fixed color
+    color: "#fff",
     position: "relative",
   };
 
@@ -34,28 +34,51 @@ const Navbar = () => {
     left: 0,
     backgroundColor: "#fff",
     boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-    minWidth: "150px",
+    minWidth: "200px",
     zIndex: 999,
+    borderRadius: "4px",
+    overflow: "hidden",
   };
 
   const dropdownItemStyle = {
-    padding: "10px",
+    padding: "10px 15px",
     cursor: "pointer",
     textAlign: "left",
     width: "100%",
     background: "none",
     border: "none",
+    textDecoration: "none",
+    color: "#0b2c61",
+    display: "block",
+  };
+
+  const dropdownButtonStyle = {
+    background: "#0b2c61",
+    color: "#fff",
+    border: "none",
+    padding: "10px 15px",
+    fontSize: "16px",
+    cursor: "pointer",
+    borderRadius: "4px",
+    display: "flex",
+    alignItems: "center",
+    gap: "5px",
+    transition: "background 0.3s ease",
+  };
+
+  const handleMouseEnter = (e) => {
+    e.currentTarget.style.background = "#094081"; // hover color
+  };
+
+  const handleMouseLeave = (e) => {
+    e.currentTarget.style.background = "#0b2c61"; // default color
   };
 
   return (
     <nav style={navbarStyle}>
       {/* Logo */}
       <Link to="/">
-        <img
-          src="/images/logo.png"
-          alt="Logo"
-          style={{ height: "50px", width: "auto" }}
-        />
+        <img src="/images/logo.png" alt="Logo" style={{ height: "50px", width: "auto" }} />
       </Link>
 
       {/* Right side buttons */}
@@ -76,7 +99,13 @@ const Navbar = () => {
           onMouseEnter={() => setOpenDropdown("StartUps")}
           onMouseLeave={() => setOpenDropdown(null)}
         >
-          <button style={navButtonStyle}>StartUps</button>
+          <button
+            style={dropdownButtonStyle}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            StartUps 
+          </button>
           {openDropdown === "StartUps" && (
             <div style={dropdownMenuStyle}>
               <Link to="/incubated" style={dropdownItemStyle}>
@@ -95,7 +124,13 @@ const Navbar = () => {
           onMouseEnter={() => setOpenDropdown("BioNEST")}
           onMouseLeave={() => setOpenDropdown(null)}
         >
-          <button style={navButtonStyle}>BioNEST</button>
+          <button
+            style={dropdownButtonStyle}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            BioNEST 
+          </button>
           {openDropdown === "BioNEST" && (
             <div style={dropdownMenuStyle}>
               <button style={dropdownItemStyle}>Item 1</button>
@@ -111,7 +146,13 @@ const Navbar = () => {
           onMouseEnter={() => setOpenDropdown("KTech")}
           onMouseLeave={() => setOpenDropdown(null)}
         >
-          <button style={navButtonStyle}>KTech</button>
+          <button
+            style={dropdownButtonStyle}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            KTech 
+          </button>
           {openDropdown === "KTech" && (
             <div style={dropdownMenuStyle}>
               <button style={dropdownItemStyle}>Item 1</button>
@@ -127,7 +168,13 @@ const Navbar = () => {
           onMouseEnter={() => setOpenDropdown("Facilities")}
           onMouseLeave={() => setOpenDropdown(null)}
         >
-          <button style={navButtonStyle}>Facilities</button>
+          <button
+            style={dropdownButtonStyle}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            Facilities 
+          </button>
           {openDropdown === "Facilities" && (
             <div style={dropdownMenuStyle}>
               <button style={dropdownItemStyle}>Item 1</button>
