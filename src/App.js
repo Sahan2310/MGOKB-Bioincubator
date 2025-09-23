@@ -1,11 +1,25 @@
 import React from "react";
-import Homepage from "./Components/Homepage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Navbar from "./Components/NavBar";
+import Homepage from "./Pages/HomePage";
+import Graduated from "./Pages/Graduated";
+
 
 function App() {
   return (
-    <div>
-      <Homepage />
-    </div>
+    <Router>
+      {/* Navbar always present */}
+      <Navbar />
+
+      {/* Pages */}
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/graduated" element={<Graduated />} />
+        
+        {/* add more routes */}
+      </Routes>
+    </Router>
   );
 }
 

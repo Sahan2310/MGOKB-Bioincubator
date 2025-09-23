@@ -33,50 +33,6 @@ const Homepage = () => {
     paddingTop: "120px", // ⭐ Added padding to push content below navbar
   };
 
-  // ⭐ Styles
-  const navbarStyle = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  padding: "10px 30px",
-  backgroundColor: "#0b2c61",
-  position: "fixed", // ⭐ makes it fixed
-  top: 0,            // ⭐ stick to top
-  left: 0,           // ⭐ start from left edge
-  width: "98%",     // ⭐ full width
-  zIndex: 999,       // ⭐ stay above other content
-};
-
-
-  const navButtonStyle = {
-    background: "none",
-    border: "none",
-    cursor: "pointer",
-    padding: "10px 15px",
-    fontSize: "16px",
-    color: "#ffffffff",
-    position: "relative",
-  };
-
-  const dropdownMenuStyle = {
-    position: "absolute",
-    top: "100%",
-    left: 0,
-    backgroundColor: "#fff",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-    minWidth: "150px",
-    zIndex: 999,
-  };
-
-  const dropdownItemStyle = {
-    padding: "10px",
-    cursor: "pointer",
-    textAlign: "left",
-    width: "100%",
-    background: "none",
-    border: "none",
-  };
-
   const headerStyle = {
     padding: "0px 10px",
     fontSize: "30px",
@@ -136,7 +92,7 @@ const Homepage = () => {
     marginTop: "10px",
     fontWeight: "bold",
     fontSize: "16px",
-    color: "#05445e",
+    color: "#0b2c61",
     textAlign: "center",
   };
 
@@ -187,120 +143,6 @@ const Homepage = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   return (
     <>
-      {/* ⭐ Navbar */}
-<nav style={navbarStyle}>
-      {/* Logo on the left */}
-      <img
-        src="/images/logo.png" // ⭐ replace with your logo path
-        alt="Logo" // ⭐ add your description here
-        style={{ height: "50px", width: "auto" }}
-      />
-
-      {/* Right side buttons */}
-      <div style={{ display: "flex", gap: "20px" }}>
-        {/* Home */}
-        <button
-          style={navButtonStyle}
-          onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
-          onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
-        >
-          Home
-        </button>
-
-        {/* About */}
-        <button
-          style={navButtonStyle}
-          onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
-          onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
-        >
-          About
-        </button>
-
-        {/* StartUps dropdown */}
-        <div
-          style={{ position: "relative" }}
-          onMouseEnter={() => setOpenDropdown("StartUps")}
-          onMouseLeave={() => setOpenDropdown(null)}
-        >
-          <button
-            style={navButtonStyle}
-            onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
-            onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
-          >
-            StartUps 
-          </button>
-          {openDropdown === "StartUps" && (
-            <div style={dropdownMenuStyle}>
-              <button style={dropdownItemStyle}>Incubated Startups</button>
-              <button style={dropdownItemStyle}>Graduated Startups</button>
-            </div>
-          )}
-        </div>
-
-        {/* BioNEST dropdown */}
-        <div
-          style={{ position: "relative" }}
-          onMouseEnter={() => setOpenDropdown("BioNEST")}
-          onMouseLeave={() => setOpenDropdown(null)}
-        >
-          <button
-            style={navButtonStyle}
-            onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
-            onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
-          >
-            BioNEST
-          </button>
-          {openDropdown === "BioNEST" && (
-            <div style={dropdownMenuStyle}>
-              <button style={dropdownItemStyle}>Item 1</button>
-              <button style={dropdownItemStyle}>Item 2</button>
-              <button style={dropdownItemStyle}>Item 3</button>
-            </div>
-          )}
-        </div>
-
-        {/* Facilities dropdown */}
-        <div
-          style={{ position: "relative" }}
-          onMouseEnter={() => setOpenDropdown("Facilities")}
-          onMouseLeave={() => setOpenDropdown(null)}
-        >
-          <button
-            style={navButtonStyle}
-            onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
-            onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
-          >
-            Facilities
-          </button>
-          {openDropdown === "Facilities" && (
-            <div style={dropdownMenuStyle}>
-              <button style={dropdownItemStyle}>Item 1</button>
-              <button style={dropdownItemStyle}>Item 2</button>
-              <button style={dropdownItemStyle}>Item 3</button>
-            </div>
-          )}
-        </div>
-
-        {/* Our Team */}
-        <button
-          style={navButtonStyle}
-          onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
-          onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
-        >
-          Our Team
-        </button>
-
-        {/* Events */}
-        <button
-          style={navButtonStyle}
-          onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
-          onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
-        >
-          Events
-        </button>
-      </div>
-    </nav>
-
       <div style={containerStyle}>
         {/* Keyframes animation */}
         <style>
@@ -321,14 +163,12 @@ const Homepage = () => {
                 <div
                   style={cardStyle}
                   onMouseEnter={(e) => {
-                    const img = e.currentTarget.querySelector("img");
-                    img.style.filter = "blur(2px)";
-                    img.style.transform = "scale(1.05)";
+                    const card = e.currentTarget;
+                    card.style.border = "5px solid #0b2c61";
                   }}
                   onMouseLeave={(e) => {
-                    const img = e.currentTarget.querySelector("img");
-                    img.style.filter = "blur(0px)";
-                    img.style.transform = "scale(1)";
+                    const card = e.currentTarget;
+                    card.style.border = "5px solid transparent";
                   }}
                 >
                   <img src={item.img} alt={item.title} style={imgStyle} />
@@ -343,14 +183,12 @@ const Homepage = () => {
                 <div
                   style={cardStyle}
                   onMouseEnter={(e) => {
-                    const img = e.currentTarget.querySelector("img");
-                    img.style.filter = "blur(2px)";
-                    img.style.transform = "scale(1.05)";
+                    const card = e.currentTarget;
+                    card.style.border = "5px solid #0b2c61";
                   }}
                   onMouseLeave={(e) => {
-                    const img = e.currentTarget.querySelector("img");
-                    img.style.filter = "blur(0px)";
-                    img.style.transform = "scale(1)";
+                    const card = e.currentTarget;
+                    card.style.border = "5px solid transparent";
                   }}
                 >
                   <img src={item.img} alt={item.title} style={imgStyle} />
@@ -416,4 +254,3 @@ const Homepage = () => {
 };
 
 export default Homepage;
-
