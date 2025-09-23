@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const thrustAreasData = [
   { title: "Biopharma", img: "/images/Biopharma.jpg" },
@@ -30,14 +30,59 @@ const Homepage = () => {
     padding: "50px 20px",
     textAlign: "center",
     fontFamily: "Times New Roman, Serif",
+    paddingTop: "120px", // ⭐ Added padding to push content below navbar
+  };
+
+  // ⭐ Styles
+  const navbarStyle = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  padding: "10px 30px",
+  backgroundColor: "#0b2c61",
+  position: "fixed", // ⭐ makes it fixed
+  top: 0,            // ⭐ stick to top
+  left: 0,           // ⭐ start from left edge
+  width: "98%",     // ⭐ full width
+  zIndex: 999,       // ⭐ stay above other content
+};
+
+
+  const navButtonStyle = {
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    padding: "10px 15px",
+    fontSize: "16px",
+    color: "#ffffffff",
+    position: "relative",
+  };
+
+  const dropdownMenuStyle = {
+    position: "absolute",
+    top: "100%",
+    left: 0,
+    backgroundColor: "#fff",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+    minWidth: "150px",
+    zIndex: 999,
+  };
+
+  const dropdownItemStyle = {
+    padding: "10px",
+    cursor: "pointer",
+    textAlign: "left",
+    width: "100%",
+    background: "none",
+    border: "none",
   };
 
   const headerStyle = {
-    padding: "10px 20px",
+    padding: "0px 10px",
     fontSize: "30px",
     borderRadius: "8px",
-    marginBottom: "40px",
-    marginTop: "10px",
+    marginBottom: "30px",
+    marginTop: "2px",
     fontWeight: "bold",
     color: "#0b2c61",
     textAlign: "center",
@@ -59,7 +104,7 @@ const Homepage = () => {
   const rowStyle = {
     display: "flex",
     justifyContent: "center",
-    gap: "20px", // reduced distance between circles
+    gap: "20px",
   };
 
   const cardWrapperStyle = {
@@ -139,98 +184,236 @@ const Homepage = () => {
     height: "100%",
     objectFit: "contain",
   };
-
+  const [openDropdown, setOpenDropdown] = useState(null);
   return (
-    <div style={containerStyle}>
-      {/* Keyframes animation */}
-      <style>
-        {`
-          @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}
-      </style>
+    <>
+      {/* ⭐ Navbar */}
+<nav style={navbarStyle}>
+      {/* Logo on the left */}
+      <img
+        src="/images/logo.png" // ⭐ replace with your logo path
+        alt="Logo" // ⭐ add your description here
+        style={{ height: "50px", width: "auto" }}
+      />
 
-      {/* Thrust Areas */}
-      <h2 style={headerStyle}>Thrust Areas</h2>
-      <div style={mainGridStyle}>
-        <div style={rowStyle}>
-          {thrustAreasData.slice(0, 3).map((item, index) => (
-            <div key={index} style={cardWrapperStyle}>
-              <div
-                style={cardStyle}
-                onMouseEnter={(e) => {
-                  const img = e.currentTarget.querySelector("img");
-                  img.style.filter = "blur(2px)";
-                  img.style.transform = "scale(1.05)";
-                }}
-                onMouseLeave={(e) => {
-                  const img = e.currentTarget.querySelector("img");
-                  img.style.filter = "blur(0px)";
-                  img.style.transform = "scale(1)";
-                }}
-              >
-                <img src={item.img} alt={item.title} style={imgStyle} />
-              </div>
-              <div style={titleStyle}>{item.title}</div>
-            </div>
-          ))}
-        </div>
-        <div style={rowStyle}>
-          {thrustAreasData.slice(3, 6).map((item, index) => (
-            <div key={index} style={cardWrapperStyle}>
-              <div
-                style={cardStyle}
-                onMouseEnter={(e) => {
-                  const img = e.currentTarget.querySelector("img");
-                  img.style.filter = "blur(2px)";
-                  img.style.transform = "scale(1.05)";
-                }}
-                onMouseLeave={(e) => {
-                  const img = e.currentTarget.querySelector("img");
-                  img.style.filter = "blur(0px)";
-                  img.style.transform = "scale(1)";
-                }}
-              >
-                <img src={item.img} alt={item.title} style={imgStyle} />
-              </div>
-              <div style={titleStyle}>{item.title}</div>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* Right side buttons */}
+      <div style={{ display: "flex", gap: "20px" }}>
+        {/* Home */}
+        <button
+          style={navButtonStyle}
+          onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
+          onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
+        >
+          Home
+        </button>
 
-      <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
+        {/* About */}
+        <button
+          style={navButtonStyle}
+          onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
+          onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
+        >
+          About
+        </button>
 
-      {/* Supported By */}
-      <h2 style={supportedByHeaderStyle}>With Support From</h2>
-      <div style={{ display: "flex", justifyContent: "center", gap: "50px" }}>
-        {supportedByData.map((item, index) => (
-          <div
-            key={index}
-            style={supportedByImageWrapperStyle}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+        {/* StartUps dropdown */}
+        <div
+          style={{ position: "relative" }}
+          onMouseEnter={() => setOpenDropdown("StartUps")}
+          onMouseLeave={() => setOpenDropdown(null)}
+        >
+          <button
+            style={navButtonStyle}
+            onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
+            onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
           >
-            <img src={item.img} alt={`Partner ${index + 1}`} style={supportedByImgStyle} />
-          </div>
-        ))}
-      </div>
+            StartUps 
+          </button>
+          {openDropdown === "StartUps" && (
+            <div style={dropdownMenuStyle}>
+              <button style={dropdownItemStyle}>Incubated Startups</button>
+              <button style={dropdownItemStyle}>Graduated Startups</button>
+            </div>
+          )}
+        </div>
 
-      {/* Scrolling Partners */}
-      <h2 style={supportedByHeaderStyle}>Together We Grow</h2>
-      <div style={scrollingContainerStyle}>
-        <div style={scrollingInnerStyle}>
-          {scrollingPartnersData.concat(scrollingPartnersData).map((item, index) => (
-            <div key={index} style={scrollingImageWrapperStyle}>
-              <img src={item.img} alt={`Partner ${index + 1}`} style={scrollingImgStyle} />
+        {/* BioNEST dropdown */}
+        <div
+          style={{ position: "relative" }}
+          onMouseEnter={() => setOpenDropdown("BioNEST")}
+          onMouseLeave={() => setOpenDropdown(null)}
+        >
+          <button
+            style={navButtonStyle}
+            onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
+            onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
+          >
+            BioNEST
+          </button>
+          {openDropdown === "BioNEST" && (
+            <div style={dropdownMenuStyle}>
+              <button style={dropdownItemStyle}>Item 1</button>
+              <button style={dropdownItemStyle}>Item 2</button>
+              <button style={dropdownItemStyle}>Item 3</button>
+            </div>
+          )}
+        </div>
+
+        {/* Facilities dropdown */}
+        <div
+          style={{ position: "relative" }}
+          onMouseEnter={() => setOpenDropdown("Facilities")}
+          onMouseLeave={() => setOpenDropdown(null)}
+        >
+          <button
+            style={navButtonStyle}
+            onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
+            onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
+          >
+            Facilities
+          </button>
+          {openDropdown === "Facilities" && (
+            <div style={dropdownMenuStyle}>
+              <button style={dropdownItemStyle}>Item 1</button>
+              <button style={dropdownItemStyle}>Item 2</button>
+              <button style={dropdownItemStyle}>Item 3</button>
+            </div>
+          )}
+        </div>
+
+        {/* Our Team */}
+        <button
+          style={navButtonStyle}
+          onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
+          onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
+        >
+          Our Team
+        </button>
+
+        {/* Events */}
+        <button
+          style={navButtonStyle}
+          onMouseEnter={(e) => (e.currentTarget.style.fontWeight = "bold")}
+          onMouseLeave={(e) => (e.currentTarget.style.fontWeight = "normal")}
+        >
+          Events
+        </button>
+      </div>
+    </nav>
+
+      <div style={containerStyle}>
+        {/* Keyframes animation */}
+        <style>
+          {`
+            @keyframes scroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `}
+        </style>
+
+        {/* Thrust Areas */}
+        <h2 style={headerStyle}>Thrust Areas</h2>
+        <div style={mainGridStyle}>
+          <div style={rowStyle}>
+            {thrustAreasData.slice(0, 3).map((item, index) => (
+              <div key={index} style={cardWrapperStyle}>
+                <div
+                  style={cardStyle}
+                  onMouseEnter={(e) => {
+                    const img = e.currentTarget.querySelector("img");
+                    img.style.filter = "blur(2px)";
+                    img.style.transform = "scale(1.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const img = e.currentTarget.querySelector("img");
+                    img.style.filter = "blur(0px)";
+                    img.style.transform = "scale(1)";
+                  }}
+                >
+                  <img src={item.img} alt={item.title} style={imgStyle} />
+                </div>
+                <div style={titleStyle}>{item.title}</div>
+              </div>
+            ))}
+          </div>
+          <div style={rowStyle}>
+            {thrustAreasData.slice(3, 6).map((item, index) => (
+              <div key={index} style={cardWrapperStyle}>
+                <div
+                  style={cardStyle}
+                  onMouseEnter={(e) => {
+                    const img = e.currentTarget.querySelector("img");
+                    img.style.filter = "blur(2px)";
+                    img.style.transform = "scale(1.05)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const img = e.currentTarget.querySelector("img");
+                    img.style.filter = "blur(0px)";
+                    img.style.transform = "scale(1)";
+                  }}
+                >
+                  <img src={item.img} alt={item.title} style={imgStyle} />
+                </div>
+                <div style={titleStyle}>{item.title}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <hr
+          style={{
+            border: "none",
+            borderTop: "2px solid #0b2c61",
+            margin: "50px auto",
+            width: "80%",
+          }}
+        />
+
+        {/* Supported By */}
+        <h2 style={supportedByHeaderStyle}>With Support From</h2>
+        <div style={{ display: "flex", justifyContent: "center", gap: "50px" }}>
+          {supportedByData.map((item, index) => (
+            <div
+              key={index}
+              style={supportedByImageWrapperStyle}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.transform = "scale(1.1)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.transform = "scale(1)")
+              }
+            >
+              <img
+                src={item.img}
+                alt={`Partner ${index + 1}`}
+                style={supportedByImgStyle}
+              />
             </div>
           ))}
         </div>
+
+        {/* Scrolling Partners */}
+        <h2 style={supportedByHeaderStyle}>Our Patrons</h2>
+        <div style={scrollingContainerStyle}>
+          <div style={scrollingInnerStyle}>
+            {scrollingPartnersData
+              .concat(scrollingPartnersData)
+              .map((item, index) => (
+                <div key={index} style={scrollingImageWrapperStyle}>
+                  <img
+                    src={item.img}
+                    alt={`Partner ${index + 1}`}
+                    style={scrollingImgStyle}
+                  />
+                </div>
+              ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
 export default Homepage;
+
