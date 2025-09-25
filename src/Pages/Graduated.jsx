@@ -144,11 +144,11 @@ function Graduated() {
     const [visibleCount, setVisibleCount] = useState(6); // show 4 initially
 
   const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 3); // load 4 more on each click
+    setVisibleCount((prev) => prev + 6); // load 6 more on each click
   };
   
   return (
-    <div style={{ padding: "8rem 2rem 2rem 2rem", backgroundColor: "#f0f8ff" }}>
+    <div style={{ padding: "8rem 2rem 2rem 2rem", backgroundColor: "#f2f2f2ff" }}>
       <h1 style={{ textAlign: "center", marginBottom: "2rem", color: "#0b2c61" }}>
         Graduated Startups
       </h1>

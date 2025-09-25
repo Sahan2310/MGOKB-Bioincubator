@@ -5,6 +5,9 @@ import Navbar from "./Components/NavBar";
 import Homepage from "./Pages/HomePage";
 import Graduated from "./Pages/Graduated";
 import Incubated from "./Pages/Incubated";
+import About from "./Pages/About";
+import Events from "./Pages/Events";
+
 
 
 
@@ -19,6 +22,8 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/graduated" element={<Graduated />} />
         <Route path="/incubated" element={<Incubated />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/events" element={<Events />} />
         {/* add more routes */}
       </Routes>
     </Router>

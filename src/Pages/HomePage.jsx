@@ -24,6 +24,28 @@ const scrollingPartnersData = [
   { img: "images/HDFC.jpg" },
 ];
 
+const testimonialsData = [
+  {
+    name: "John Doe",
+    image: "/images/customer1.jpg", // replace with your image path
+    review: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    rating: 5,
+  },
+  {
+    name: "Jane Smith",
+    image: "/images/customer2.jpg",
+    review: "Great service! Highly recommend to everyone looking for quality.",
+    rating: 5,
+  },
+  {
+    name: "Alice Johnson",
+    image: "/images/customer3.jpg",
+    review: "Amazing experience with this company. Very satisfied.",
+    rating: 5,
+  },
+  // ⭐ Add more testimonials here
+];
+
 const Homepage = () => {
   const containerStyle = {
     backgroundColor: "#f2f2f2ff",
@@ -248,9 +270,71 @@ const Homepage = () => {
               ))}
           </div>
         </div>
+        <div style={styles.container}>
+      {testimonialsData.map((testimonial, index) => (
+        <div key={index} style={styles.card}>
+          <div style={styles.imageContainer}>
+            <img
+              src={testimonial.image}
+              alt={testimonial.name}
+              style={styles.image}
+            />
+          </div>
+          <h3 style={styles.name}>{testimonial.name}</h3>
+          <div style={styles.stars}>
+            {"⭐".repeat(testimonial.rating)}
+          </div>
+          <p style={styles.review}>{testimonial.review}</p>
+        </div>
+      ))}
+    </div>
       </div>
     </>
   );
+};
+const styles = {
+  container: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: "40px",
+    padding: "40px",
+    backgroundColor: "#0b2c61",
+  },
+  card: {
+    backgroundColor: "#fff",
+    padding: "10px",
+    width: "300px",
+    borderRadius: "10px",
+    boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+    textAlign: "center",
+  },
+  imageContainer: {
+    width: "100px",
+    height: "100px",
+    margin: "0 auto",
+    marginBottom: "10px",
+    borderRadius: "50%",
+    overflow: "hidden",
+    border: "3px solid orange",
+  },
+  image: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  },
+  name: {
+    margin: "10px 0 5px",
+    fontWeight: "bold",
+  },
+  stars: {
+    color: "orange",
+    marginBottom: "10px",
+  },
+  review: {
+    fontSize: "14px",
+    color: "#555",
+  },
 };
 
 export default Homepage;
