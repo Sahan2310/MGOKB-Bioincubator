@@ -7,6 +7,7 @@ import Graduated from "./Pages/Graduated";
 import Incubated from "./Pages/Incubated";
 
 
+
 function App() {
   return (
     <Router>
@@ -18,7 +19,6 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/graduated" element={<Graduated />} />
         <Route path="/incubated" element={<Incubated />} />
-        
         {/* add more routes */}
       </Routes>
     </Router>
