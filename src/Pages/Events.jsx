@@ -1,38 +1,42 @@
 import React from "react";
 
-const upcomingEvents = [
+// Original upcoming events data
+const upcomingEventsData = [
   {
     img: "/images/upcoming1.jpg",
     title: "Startup Pitch Day",
-    date: "5 Sept 2025",
+    date: "5 Oct 2025",
     link: "https://example.com/upcoming1",
   },
   {
     img: "/images/upcoming2.jpg",
     title: "Innovation Hackathon",
-    date: "10 Sept 2025",
+    date: "10 Oct 2025",
     link: "https://example.com/upcoming2",
   },
   {
     img: "/images/upcoming3.jpg",
     title: "Green Energy Workshop",
-    date: "15 Sept 2025",
+    date: "15 Oct 2025",
     link: "https://example.com/upcoming3",
   },
 ];
 
-const monthlyEvents = [
+// Original monthly events data
+const monthlyEventsData = [
   {
     month: "September 2025",
     events: [
       {
         img: "/images/event1.jpg",
         date: "20 Sept 2025",
+        title: "September Event 1", // Added title for clarity
         link: "https://docs.google.com/forms/d/e/1FAIpQLSfT_lamMdppPIMMo8MnGS4mtCrPGzhlkYeMn96RJzZlzxeTaw/viewform?usp=dialog",
       },
       {
         img: "/images/event2.png",
         date: "23 Sept 2025",
+        title: "September Event 2", // Added title for clarity
         link: "https://tinyurl.com/3vwd963p",
       },
     ],
@@ -48,6 +52,7 @@ const monthlyEvents = [
       },
       {
         img: "/images/Aug25.jpg",
+        title: "August Event 2", // Added title for clarity
         date: "25 Aug 2025",
         link: "https://example.com/event7",
       },
@@ -58,6 +63,7 @@ const monthlyEvents = [
     events: [
       {
         img: "/images/JUL31.jpg",
+        title: "July Event", // Added title for clarity
         date: "31 July 2025",
         link: "https://example.com/event6",
       },
@@ -68,7 +74,8 @@ const monthlyEvents = [
     events: [
       {
         img: "/images/June.jpg",
-        date: "31 June 2025",
+        title: "June Event", // Added title for clarity
+        date: "31 June 2025", // Note: June only has 30 days, this might be a typo in original data.
         link: "https://example.com/event6",
       },
     ],
@@ -76,89 +83,30 @@ const monthlyEvents = [
 ];
 
 const Events = () => {
+  // Create a new "Upcoming Events" section in the same format as monthly events
+  const upcomingEventsSection = {
+    month: "Upcoming Events",
+    events: upcomingEventsData,
+  };
+
+  // Combine the new upcoming section with the rest of the monthly events
+  const allEvents = [upcomingEventsSection, ...monthlyEventsData];
+
   return (
-    <div style={{ padding: "40px" }}>
-      {/* Heading */}
-      <h2
-        style={{
-          textAlign: "center",
-          fontSize: "32px",
-          color: "#0b2c61",
-          marginBottom: "30px",
-        }}
-      >
-        Upcoming Events
-      </h2>
-
-      {/* Top Row - 3 Cards */}
-      <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          marginBottom: "60px",
-        }}
-      >
-        {upcomingEvents.map((event, index) => (
-          <div
-            key={index}
-            onClick={() => window.open(event.link, "_blank")}
-            style={{
-              width: "300px",
-              borderRadius: "10px",
-              border: "4px solid #0b2c61",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-              cursor: "pointer",
-              transition: "transform 0.3s ease",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.transform = "scale(1.05)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.transform = "scale(1)")
-            }
-          >
-            {/* Poster Image */}
-            <img
-              src={event.img}
-              alt={event.title}
-              style={{
-                width: "100%",
-                height: "auto",
-                borderRadius: "6px 6px 0 0",
-                objectFit: "cover",
-              }}
-            />
-            {/* Date below poster */}
-            <div
-              style={{
-                padding: "10px",
-                textAlign: "center",
-                fontSize: "14px",
-                color: "#0b2c61",
-                fontWeight: "bold",
-              }}
-            >
-              {event.date}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Monthly Events with alternating backgrounds */}
-      {monthlyEvents.map((monthData, i) => (
+    <div style={{ padding: "80px" }}>
+      {/* Unified Events Layout */}
+      {allEvents.map((monthData, i) => (
         <div
           key={i}
           style={{
             marginBottom: "60px",
             padding: "20px",
-            background: i % 2 === 0 ? "#f0f8ff" : "#e8e8e8", // alternate row background
+            background: "#e8e8e8", // alternate row background
             borderRadius: "10px",
           }}
         >
           <div style={{ display: "flex", alignItems: "flex-start", gap: "30px" }}>
-            {/* Month Name */}
+            {/* Month Name or "Upcoming Events" Title */}
             <div
               style={{
                 flex: "0 0 200px",
@@ -193,6 +141,7 @@ const Events = () => {
                     boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
                     cursor: "pointer",
                     transition: "transform 0.3s ease",
+                    background: "white", // Added background for consistency
                   }}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.transform = "scale(1.05)")
@@ -204,7 +153,7 @@ const Events = () => {
                   {/* Poster */}
                   <img
                     src={event.img}
-                    alt={event.title}
+                    alt={event.title || "Event Poster"}
                     style={{
                       width: "100%",
                       height: "auto",

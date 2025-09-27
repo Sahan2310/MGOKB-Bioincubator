@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import WhyUs from "./whyus";
+import Gallery from "./Gallery";  
+import Footer from "./Footer";
 
 const thrustAreasData = [
   { title: "Biopharma", img: "/images/Biopharma.jpg" },
@@ -27,13 +30,51 @@ const scrollingPartnersData = [
 const testimonialsData = [
   {
     name: "Shruti Acharya",
-    company: "EikonaX Innovative Solutions Pvt.Ltd", // 👈 added
+    company: "EikonaX Innovative Solutions Pvt.Ltd",
     image: "/images/T1.png",
     review:
       "MAHE Bioincubator has been a game-changer for our startup journey. The supportive ecosystem fosters innovation and collaboration effortlessly. Access to state-of-the-art infrastructure has accelerated our R&D. Mentorship and guidance from industry experts have been invaluable. Networking opportunities here opened doors to key partnerships. Their team is always proactive and approachable. We’re proud to grow under MAHE Bioincubator’s nurturing environment.",
     rating: 5,
   },
 ];
+const accordionData = [
+  {
+    title: 'Complete Ecosystem',
+    imageSrc: '/images/ecosystem.jpg',
+    content: 'Our diverse and impactful ecosystem is designed to nurture and propel early-stage ideas, startups, and entrepreneurs. Our support spans across key areas to ensure that your startup journey is seamless: mentoring expertise, funding, infrastructure support, and so much more!'
+  },
+  {
+    title: 'Mentoring Expertise',
+    imageSrc: '/images/mentoring.jpg',
+    content: 'Gain access to a network of seasoned industry veterans, successful entrepreneurs, and subject matter experts. Our tailored mentoring programs provide strategic guidance and practical advice to accelerate your growth.'
+  },
+  {
+    title: 'Track record',
+    imageSrc: '/images/track-record.jpg',
+    content: 'Our portfolio of successful startups speaks for itself. We have a proven history of helping founders transform brilliant ideas into market-leading companies. Join a community of innovators who have achieved remarkable success.'
+  }
+];
+
+
+const Counter = ({ endValue, duration, text }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = timestamp - startTimestamp;
+      const increment = Math.ceil((endValue / duration) * progress);
+      setCount(Math.min(increment, endValue));
+      if (progress < duration) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [endValue, duration]);
+
+  return <span>{count}{text}</span>;
+};
 
 const Homepage = () => {
   const containerStyle = {
@@ -152,56 +193,120 @@ const Homepage = () => {
     objectFit: "contain",
   };
 
-const flipCardContainerStyle = {
-  display: "flex",
-  justifyContent: "center",
-  gap: "40px",
-  marginBottom: "60px",
-  flexWrap: "wrap",
-};
+  const flipCardContainerStyle = {
+    display: "flex",
+    justifyContent: "center",
+    gap: "40px",
+    marginBottom: "60px",
+    flexWrap: "wrap",
+  };
 
-const flipCardStyle = {
-  backgroundColor: "#0b2c61",
-  width: "300px",
-  height: "200px",
-  perspective: "1200px", // smoother 3D effect
-  cursor: "pointer",
-};
+  const flipCardStyle = {
+    backgroundColor: "#0b2c61",
+    width: "300px",
+    height: "200px",
+    perspective: "1200px",
+    cursor: "pointer",
+  };
 
-const flipCardInnerStyle = {
-  position: "relative",
-  width: "100%",
-  height: "100%",
-  textAlign: "center",
-  transition: "transform 0.6s",
-  transformStyle: "preserve-3d",
-  boxShadow: "0 8px 20px rgba(0,0,0,0.3)", // subtle shadow
-  borderRadius: "12px",
-};
+  const flipCardInnerStyle = {
+    position: "relative",
+    width: "100%",
+    height: "100%",
+    textAlign: "center",
+    transition: "transform 0.6s",
+    transformStyle: "preserve-3d",
+    boxShadow: "0 8px 20px rgba(0,0,0,0.3)", // subtle shadow
+    borderRadius: "12px",
+  };
 
-const flipCardFrontBackStyle = {
-  position: "absolute",
-  width: "100%",
-  height: "100%",
-  backfaceVisibility: "hidden",
-  borderRadius: "12px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  color: "white",
-  fontWeight: "bold",
-  fontSize: "18px",
-  padding: "10px",
-  boxSizing: "border-box",
-};
+  const flipCardFrontBackStyle = {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    backfaceVisibility: "hidden",
+    borderRadius: "12px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "white",
+    fontWeight: "bold",
+    fontSize: "18px",
+    padding: "10px",
+    boxSizing: "border-box",
+  };
 
-const flipCardBackStyle = {
-  ...flipCardFrontBackStyle,
-  backgroundColor: "#0b2c61",
-  transform: "rotateY(180deg)",
-};
+  const flipCardBackStyle = {
+    ...flipCardFrontBackStyle,
+    backgroundColor: "#0b2c61",
+    transform: "rotateY(180deg)",
+  };
 
   const [hoveredCard, setHoveredCard] = useState(null);
+
+  const impactSectionStyle = {
+    backgroundColor: "#f2f2f2ff",
+    color: "white",
+    textAlign: "center",
+  };
+
+  const impactTitleStyle = {
+    fontSize: "40px",
+    fontWeight: "bold",
+    marginBottom: "40px",
+    color: "#0b2c61",
+  };
+
+  const impactGridStyle = {
+    display: "flex",
+    justifyContent: "center",
+    gap: "20px",
+    flexWrap: "wrap",
+    maxWidth: "1200px",
+    margin: "0 auto",
+  };
+
+  const impactCardStyle = {
+    flex: "1 1 200px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    textAlign: "center",
+    padding: "20px",
+    maxWidth: "220px",
+  };
+
+  const impactIconWrapperStyle = {
+    width: "90px",
+    height: "90px",
+    backgroundColor: "white",
+    borderRadius: "50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: "15px",
+    border: "5px solid transparent", // Initial border
+    transition: "border 0.3s", // Transition for the border
+    cursor: "pointer", // Add cursor pointer for better UX
+  };
+
+  const impactIconStyle = {
+    width: "70%",
+    height: "70%",
+  };
+
+  const impactNumberStyle = {
+    fontSize: "36px",
+    fontWeight: "bold",
+    marginTop: "10px",
+    color: "#0b2c61",
+  };
+
+  const impactTextStyle = {
+    fontSize: "18px",
+    lineHeight: "1.4",
+    color: "#0b2c61",
+  };
 
   return (
     <>
@@ -242,6 +347,9 @@ const flipCardBackStyle = {
           ))}
         </div>
         <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
+
+        <WhyUs />
+        <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
         {/* Thrust Areas */}
         <h2 style={headerStyle}>Thrust Areas</h2>
         <div style={mainGridStyle}>
@@ -272,6 +380,82 @@ const flipCardBackStyle = {
                 <div style={titleStyle}>{item.title}</div>
               </div>
             ))}
+          </div>
+        </div>
+
+        <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
+        <Gallery />
+        <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
+
+        {/* New Impact Section */}
+        <div style={impactSectionStyle}>
+          <h2 style={impactTitleStyle}>Impact</h2>
+          <div style={impactGridStyle}>
+            <div style={impactCardStyle}>
+              <div
+                style={impactIconWrapperStyle}
+                onMouseEnter={(e) => (e.currentTarget.style.border = "5px solid #0b2c61")}
+                onMouseLeave={(e) => (e.currentTarget.style.border = "5px solid transparent")}
+              >
+                <img src="/images/bulb.jpg" alt="Lightbulb Icon" style={impactIconStyle} />
+              </div>
+              <div style={impactNumberStyle}>
+                <Counter endValue={974} duration={2000} text=" Cr+" />
+              </div>
+              <div style={impactTextStyle}>Grants to Start-ups</div>
+            </div>
+            <div style={impactCardStyle}>
+              <div
+                style={impactIconWrapperStyle}
+                onMouseEnter={(e) => (e.currentTarget.style.border = "5px solid #0b2c61")}
+                onMouseLeave={(e) => (e.currentTarget.style.border = "5px solid transparent")}
+              >
+                <img src="/images/Startup.jpg" alt="Money Bag Icon" style={impactIconStyle} />
+              </div>
+              <div style={impactNumberStyle}>
+                <Counter endValue={70} duration={2000} text="" />
+              </div>
+              <div style={impactTextStyle}>Total startups</div>
+            </div>
+            <div style={impactCardStyle}>
+              <div
+                style={impactIconWrapperStyle}
+                onMouseEnter={(e) => (e.currentTarget.style.border = "5px solid #0b2c61")}
+                onMouseLeave={(e) => (e.currentTarget.style.border = "5px solid transparent")}
+              >
+                <img src="/images/Technology.jpg" alt="Star Icon" style={impactIconStyle} />
+              </div>
+              <div style={impactNumberStyle}>
+                <Counter endValue={40} duration={2000} text="" />
+              </div>
+              <div style={impactTextStyle}>Technology Supported</div>
+            </div>
+            <div style={impactCardStyle}>
+              <div
+                style={impactIconWrapperStyle}
+                onMouseEnter={(e) => (e.currentTarget.style.border = "5px solid #0b2c61")}
+                onMouseLeave={(e) => (e.currentTarget.style.border = "5px solid transparent")}
+              >
+                <img src="/images/Members.jpg" alt="Patents Icon" style={impactIconStyle} />
+              </div>
+              <div style={impactNumberStyle}>
+                <Counter endValue={154} duration={2000} text=" Cr+" />
+              </div>
+              <div style={impactTextStyle}>Paid Members</div>
+            </div>
+            <div style={impactCardStyle}>
+              <div
+                style={impactIconWrapperStyle}
+                onMouseEnter={(e) => (e.currentTarget.style.border = "5px solid #0b2c61")}
+                onMouseLeave={(e) => (e.currentTarget.style.border = "5px solid transparent")}
+              >
+                <img src="/images/women.jpg" alt="Women Icon" style={impactIconStyle} />
+              </div>
+              <div style={impactNumberStyle}>
+                <Counter endValue={40} duration={2000} text="" />
+              </div>
+              <div style={impactTextStyle}>Women-Led Startups</div>
+            </div>
           </div>
         </div>
 
@@ -323,17 +507,18 @@ const flipCardBackStyle = {
               boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
               textAlign: "center",
             }}>
-              <div style={{ width: "33%", margin: "0 auto", height: "33%",objectFit: "cover" }}>
+              <div style={{ width: "33%", margin: "0 auto", height: "33%", objectFit: "cover" }}>
                 <img src={testimonial.image} alt={testimonial.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <h3 style={{ margin: "10px 0 5px", fontWeight: "bold", color: "#0b2c61" }}>{testimonial.name}</h3>
-              <h3 style={{ margin: "10px 0 5px",color: "#0b2c61",fontSize:15 }}>{testimonial.company}</h3>
+              <h3 style={{ margin: "10px 0 5px", color: "#0b2c61", fontSize: 15 }}>{testimonial.company}</h3>
               <div style={{ color: "#0b2c61", marginBottom: "10px" }}>{"⭐".repeat(testimonial.rating)}</div>
               <p style={{ fontSize: "14px", color: "#0b2c61" }}>{testimonial.review}</p>
             </div>
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 };
