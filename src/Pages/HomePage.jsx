@@ -26,24 +26,13 @@ const scrollingPartnersData = [
 
 const testimonialsData = [
   {
-    name: "John Doe",
-    image: "/images/customer1.jpg", // replace with your image path
-    review: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    name: "Shruti Acharya",
+    company: "EikonaX Innovative Solutions Pvt.Ltd", // 👈 added
+    image: "/images/T1.png",
+    review:
+      "MAHE Bioincubator has been a game-changer for our startup journey. The supportive ecosystem fosters innovation and collaboration effortlessly. Access to state-of-the-art infrastructure has accelerated our R&D. Mentorship and guidance from industry experts have been invaluable. Networking opportunities here opened doors to key partnerships. Their team is always proactive and approachable. We’re proud to grow under MAHE Bioincubator’s nurturing environment.",
     rating: 5,
   },
-  {
-    name: "Jane Smith",
-    image: "/images/customer2.jpg",
-    review: "Great service! Highly recommend to everyone looking for quality.",
-    rating: 5,
-  },
-  {
-    name: "Alice Johnson",
-    image: "/images/customer3.jpg",
-    review: "Amazing experience with this company. Very satisfied.",
-    rating: 5,
-  },
-  // ⭐ Add more testimonials here
 ];
 
 const Homepage = () => {
@@ -52,7 +41,7 @@ const Homepage = () => {
     padding: "50px 20px",
     textAlign: "center",
     fontFamily: "Times New Roman, Serif",
-    paddingTop: "120px", // ⭐ Added padding to push content below navbar
+    paddingTop: "120px",
   };
 
   const headerStyle = {
@@ -139,7 +128,7 @@ const Homepage = () => {
   const scrollingContainerStyle = {
     overflow: "hidden",
     marginTop: "60px",
-    marginBottom: "20px",
+    marginBottom: "100px",
     width: "100%",
     background: "#f2f2f2ff",
   };
@@ -162,7 +151,58 @@ const Homepage = () => {
     height: "100%",
     objectFit: "contain",
   };
-  const [openDropdown, setOpenDropdown] = useState(null);
+
+const flipCardContainerStyle = {
+  display: "flex",
+  justifyContent: "center",
+  gap: "40px",
+  marginBottom: "60px",
+  flexWrap: "wrap",
+};
+
+const flipCardStyle = {
+  backgroundColor: "#0b2c61",
+  width: "300px",
+  height: "200px",
+  perspective: "1200px", // smoother 3D effect
+  cursor: "pointer",
+};
+
+const flipCardInnerStyle = {
+  position: "relative",
+  width: "100%",
+  height: "100%",
+  textAlign: "center",
+  transition: "transform 0.6s",
+  transformStyle: "preserve-3d",
+  boxShadow: "0 8px 20px rgba(0,0,0,0.3)", // subtle shadow
+  borderRadius: "12px",
+};
+
+const flipCardFrontBackStyle = {
+  position: "absolute",
+  width: "100%",
+  height: "100%",
+  backfaceVisibility: "hidden",
+  borderRadius: "12px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  color: "white",
+  fontWeight: "bold",
+  fontSize: "18px",
+  padding: "10px",
+  boxSizing: "border-box",
+};
+
+const flipCardBackStyle = {
+  ...flipCardFrontBackStyle,
+  backgroundColor: "#0b2c61",
+  transform: "rotateY(180deg)",
+};
+
+  const [hoveredCard, setHoveredCard] = useState(null);
+
   return (
     <>
       <div style={containerStyle}>
@@ -176,6 +216,32 @@ const Homepage = () => {
           `}
         </style>
 
+        {/* Vision & Mission */}
+        <h2 style={headerStyle}>Our Aim</h2>
+        <div style={flipCardContainerStyle}>
+          {[
+            { front: "Our Vision", back: "To transform innovative ideas or technology to an enterprise through strategic implementation along with adequate mentoring through eminent incubation service and affordable high-end incubation facilities." },
+            { front: "Our Mission", back: "To create an entrepreneurship ecosystem with professional services that aids the transformation of innovative ideas to scalable technology and knowledge-based enterprises." }
+          ].map((item, index) => (
+            <div
+              key={index}
+              style={flipCardStyle}
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              <div
+                style={{
+                  ...flipCardInnerStyle,
+                  transform: hoveredCard === index ? "rotateY(180deg)" : "rotateY(0deg)",
+                }}
+              >
+                <div style={flipCardFrontBackStyle}>{item.front}</div>
+                <div style={flipCardBackStyle}>{item.back}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
         {/* Thrust Areas */}
         <h2 style={headerStyle}>Thrust Areas</h2>
         <div style={mainGridStyle}>
@@ -184,14 +250,8 @@ const Homepage = () => {
               <div key={index} style={cardWrapperStyle}>
                 <div
                   style={cardStyle}
-                  onMouseEnter={(e) => {
-                    const card = e.currentTarget;
-                    card.style.border = "5px solid #0b2c61";
-                  }}
-                  onMouseLeave={(e) => {
-                    const card = e.currentTarget;
-                    card.style.border = "5px solid transparent";
-                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.border = "5px solid #0b2c61")}
+                  onMouseLeave={(e) => (e.currentTarget.style.border = "5px solid transparent")}
                 >
                   <img src={item.img} alt={item.title} style={imgStyle} />
                 </div>
@@ -204,14 +264,8 @@ const Homepage = () => {
               <div key={index} style={cardWrapperStyle}>
                 <div
                   style={cardStyle}
-                  onMouseEnter={(e) => {
-                    const card = e.currentTarget;
-                    card.style.border = "5px solid #0b2c61";
-                  }}
-                  onMouseLeave={(e) => {
-                    const card = e.currentTarget;
-                    card.style.border = "5px solid transparent";
-                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.border = "5px solid #0b2c61")}
+                  onMouseLeave={(e) => (e.currentTarget.style.border = "5px solid transparent")}
                 >
                   <img src={item.img} alt={item.title} style={imgStyle} />
                 </div>
@@ -221,14 +275,7 @@ const Homepage = () => {
           </div>
         </div>
 
-        <hr
-          style={{
-            border: "none",
-            borderTop: "2px solid #0b2c61",
-            margin: "50px auto",
-            width: "80%",
-          }}
-        />
+        <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
 
         {/* Supported By */}
         <h2 style={supportedByHeaderStyle}>With Support From</h2>
@@ -237,18 +284,10 @@ const Homepage = () => {
             <div
               key={index}
               style={supportedByImageWrapperStyle}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.transform = "scale(1.1)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.transform = "scale(1)")
-              }
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             >
-              <img
-                src={item.img}
-                alt={`Partner ${index + 1}`}
-                style={supportedByImgStyle}
-              />
+              <img src={item.img} alt={`Partner ${index + 1}`} style={supportedByImgStyle} />
             </div>
           ))}
         </div>
@@ -257,84 +296,46 @@ const Homepage = () => {
         <h2 style={supportedByHeaderStyle}>Our Patrons</h2>
         <div style={scrollingContainerStyle}>
           <div style={scrollingInnerStyle}>
-            {scrollingPartnersData
-              .concat(scrollingPartnersData)
-              .map((item, index) => (
-                <div key={index} style={scrollingImageWrapperStyle}>
-                  <img
-                    src={item.img}
-                    alt={`Partner ${index + 1}`}
-                    style={scrollingImgStyle}
-                  />
-                </div>
-              ))}
+            {scrollingPartnersData.concat(scrollingPartnersData).map((item, index) => (
+              <div key={index} style={scrollingImageWrapperStyle}>
+                <img src={item.img} alt={`Partner ${index + 1}`} style={scrollingImgStyle} />
+              </div>
+            ))}
           </div>
         </div>
-        <div style={styles.container}>
-      {testimonialsData.map((testimonial, index) => (
-        <div key={index} style={styles.card}>
-          <div style={styles.imageContainer}>
-            <img
-              src={testimonial.image}
-              alt={testimonial.name}
-              style={styles.image}
-            />
-          </div>
-          <h3 style={styles.name}>{testimonial.name}</h3>
-          <div style={styles.stars}>
-            {"⭐".repeat(testimonial.rating)}
-          </div>
-          <p style={styles.review}>{testimonial.review}</p>
+
+        {/* Testimonials */}
+        <div style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "40px",
+          padding: "4px",
+          backgroundColor: "#0b2c61",
+        }}>
+          {testimonialsData.map((testimonial, index) => (
+            <div key={index} style={{
+              backgroundColor: "#fff",
+              padding: "10px",
+              width: "300px",
+              height: "400px",
+              borderRadius: "10px",
+              boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+              textAlign: "center",
+            }}>
+              <div style={{ width: "33%", margin: "0 auto", height: "33%",objectFit: "cover" }}>
+                <img src={testimonial.image} alt={testimonial.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+              <h3 style={{ margin: "10px 0 5px", fontWeight: "bold", color: "#0b2c61" }}>{testimonial.name}</h3>
+              <h3 style={{ margin: "10px 0 5px",color: "#0b2c61",fontSize:15 }}>{testimonial.company}</h3>
+              <div style={{ color: "#0b2c61", marginBottom: "10px" }}>{"⭐".repeat(testimonial.rating)}</div>
+              <p style={{ fontSize: "14px", color: "#0b2c61" }}>{testimonial.review}</p>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
       </div>
     </>
   );
-};
-const styles = {
-  container: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    gap: "40px",
-    padding: "40px",
-    backgroundColor: "#0b2c61",
-  },
-  card: {
-    backgroundColor: "#fff",
-    padding: "10px",
-    width: "300px",
-    borderRadius: "10px",
-    boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-    textAlign: "center",
-  },
-  imageContainer: {
-    width: "100px",
-    height: "100px",
-    margin: "0 auto",
-    marginBottom: "10px",
-    borderRadius: "50%",
-    overflow: "hidden",
-    border: "3px solid orange",
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-  },
-  name: {
-    margin: "10px 0 5px",
-    fontWeight: "bold",
-  },
-  stars: {
-    color: "orange",
-    marginBottom: "10px",
-  },
-  review: {
-    fontSize: "14px",
-    color: "#555",
-  },
 };
 
 export default Homepage;
