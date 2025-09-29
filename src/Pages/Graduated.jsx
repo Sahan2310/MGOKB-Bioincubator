@@ -149,7 +149,7 @@ function Graduated() {
   
   return (
     <div style={{ padding: "8rem 2rem 2rem 2rem", backgroundColor: "#f2f2f2ff" }}>
-      <h1 style={{ textAlign: "center", marginBottom: "2rem", color: "#0b2c61" }}>
+      <h1 style={{ textAlign: "center", marginBottom: "2rem", color: "#000000ff" }}>
         Graduated Startups
       </h1>
 
@@ -169,7 +169,7 @@ function Graduated() {
               boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
               padding: "1rem",
               textAlign: "center",
-              color: "#0b2c61",
+              color: "000000ff",
             }}
           >
             <button
@@ -184,7 +184,7 @@ function Graduated() {
               />
             </button>
             <h3>{startup.title}</h3>
-            <p style={{ fontSize: "0.9rem", color: "#0b2c61" }}>
+            <p style={{ fontSize: "0.9rem", color: "#000000ff" }}>
               {startup.description}
             </p>
           </div>
@@ -201,7 +201,7 @@ function Graduated() {
               borderRadius: "5px",
               border: "none",
               cursor: "pointer",
-              backgroundColor: "#0b2c61",
+              backgroundColor: "#F54927",
 
               color: "#fff",
             }}

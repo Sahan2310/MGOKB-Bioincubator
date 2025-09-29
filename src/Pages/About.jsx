@@ -21,8 +21,7 @@ const About = () => {
     left: 0,
     width: "100%",
     height: "100%",
-    background:
-      "linear-gradient(to bottom, rgba(11,44,97,0.7), rgba(11,44,97,0.7))", // gradient overlay
+    background:"linear-gradient(to bottom, rgba(11,44,97,0.7), rgba(11,44,97,0.7))", // gradient overlay
     zIndex: 1,
   };
 

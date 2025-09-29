@@ -296,7 +296,7 @@ function Incubated() {
         style={{
           textAlign: "center",
           marginBottom: "2rem",
-          color: "#0b2c61",
+          color: "#000000ff",
         }}
       >
         Incubated Startups
@@ -318,7 +318,7 @@ function Incubated() {
               boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
               padding: "1rem",
               textAlign: "center",
-              color: "#0b2c61",
+              color: "#000000ff",
             }}
           >
             <button
@@ -339,7 +339,7 @@ function Incubated() {
               />
             </button>
             <h3>{startup.title}</h3>
-            <p style={{ fontSize: "0.9rem", color: "#0b2c61" }}>
+            <p style={{ fontSize: "0.9rem", color: "#000000ff " }}>
               {startup.description}
             </p>
           </div>
@@ -356,7 +356,7 @@ function Incubated() {
               borderRadius: "5px",
               border: "none",
               cursor: "pointer",
-              backgroundColor: "#0b2c61",
+              backgroundColor: "#F54927",
               color: "#fff",
             }}
           >

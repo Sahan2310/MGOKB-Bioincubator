@@ -9,8 +9,8 @@ const Navbar = () => {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    padding: "10px 30px",
-    backgroundColor: "#0b2c61",
+    padding: "0px 30px",
+    backgroundColor: "#F54927",
     position: "fixed",
     top: 0,
     left: 0,
@@ -48,12 +48,12 @@ const Navbar = () => {
     background: "none",
     border: "none",
     textDecoration: "none",
-    color: "#0b2c61",
+    color: "#000000ff",
     display: "block",
   };
 
   const dropdownButtonStyle = {
-    background: "#0b2c61",
+    background: "#F54927",
     color: "#fff",
     border: "none",
     padding: "10px 15px",
@@ -67,18 +67,18 @@ const Navbar = () => {
   };
 
   const handleMouseEnter = (e) => {
-    e.currentTarget.style.background = "#094081"; // hover color
+    e.currentTarget.style.background = "#00000"; // hover color
   };
 
   const handleMouseLeave = (e) => {
-    e.currentTarget.style.background = "#0b2c61"; // default color
+    e.currentTarget.style.background = "#F54927"; // default color
   };
 
   return (
     <nav style={navbarStyle}>
       {/* Logo */}
       <Link to="/">
-        <img src="/images/logo.png" alt="Logo" style={{ height: "50px", width: "auto" }} />
+        <img src="/images/mgbok-logo.jpg" alt="Logo" style={{ height: "50px", width: "auto" }} />
       </Link>
 
       {/* Right side buttons */}

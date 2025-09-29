@@ -32,7 +32,6 @@ const CompanyCards = () => {
           .cards-container {
             display: flex;
             gap: 10px;
-            padding: 10px;
             justify-content: center;
             flex-wrap: wrap;
           }
@@ -99,7 +98,7 @@ const CompanyCards = () => {
       </style>
 
       <div className="cards-container">
-        <h2 style={{ width: "100%", textAlign: "center", marginBottom: "10px", color: "#0b2c61",fontSize:35 }}>Win Stories</h2>
+        <h2 style={{ width: "100%", textAlign: "center", marginBottom: "10px", color: "#000000ff",fontSize:35 }}>Win Stories</h2>
         {companies.map((c, i) => (
           <div className="card" key={i}>
             <img src={c.img} alt={c.title} className="card-image" />

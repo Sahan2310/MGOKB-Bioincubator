@@ -110,7 +110,7 @@ const Events = () => {
             <div
               style={{
                 flex: "0 0 200px",
-                background: "#0b2c61",
+                background: "#F54927",
                 color: "white",
                 fontSize: "20px",
                 fontWeight: "bold",
@@ -137,7 +137,7 @@ const Events = () => {
                   style={{
                     width: "200px",
                     borderRadius: "10px",
-                    border: "3px solid #0b2c61",
+                    border: "3px solid #F54927",
                     boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
                     cursor: "pointer",
                     transition: "transform 0.3s ease",
@@ -167,7 +167,7 @@ const Events = () => {
                       padding: "8px",
                       textAlign: "center",
                       fontSize: "12px",
-                      color: "#0b2c61",
+                      color: "#000000ff",
                       fontWeight: "bold",
                     }}
                   >
