@@ -291,14 +291,8 @@ function Incubated() {
   };
 
   return (
-    <div style={{ padding: "8rem 2rem 2rem 2rem", backgroundColor: "#f2f2f2ff" }}>
-      <h1
-        style={{
-          textAlign: "center",
-          marginBottom: "2rem",
-          color: "#000000ff",
-        }}
-      >
+    <div style={{ padding: "8rem 2rem 2rem 2rem", backgroundColor: "#f2f2f2ff",fontFamily: "Garamond, serif", justifyContent: "center" }}>
+      <h1 style={{ color: "#ffffffff",fontSize: "30px", backgroundColor: "#F54927", display: "inline-block", padding: "10px 20px", borderRadius: "8px" }}>
         Incubated Startups
       </h1>
 

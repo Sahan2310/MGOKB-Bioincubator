@@ -5,16 +5,13 @@ const Footer = () => {
     background: "black",
     color: "#ffffff",
     padding: "40px 20px",
-    fontFamily: "Arial, sans-serif",
-    marginLeft: "20px",
-    marginRight: "20px",
+    fontFamily: "Garamond, serif",
   };
 
   const containerStyle = {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-between",
-    gap: "20px",
   };
 
   const columnStyle = {
@@ -22,18 +19,21 @@ const Footer = () => {
   };
 
   const columnHeaderStyle = {
-    marginBottom: "10px",
     color: "#ffffff",
+    fontSize: "27px",
   };
 
   const ulStyle = {
     listStyle: "none",
     padding: 0,
     lineHeight: 1.8,
+    fontSize: "20px",
+
   };
 
   const pStyle = {
     margin: "4px 0",
+    fontSize: "20px",
   };
 
   const newsletterStyle = {

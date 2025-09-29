@@ -148,8 +148,8 @@ function Graduated() {
   };
   
   return (
-    <div style={{ padding: "8rem 2rem 2rem 2rem", backgroundColor: "#f2f2f2ff" }}>
-      <h1 style={{ textAlign: "center", marginBottom: "2rem", color: "#000000ff" }}>
+    <div style={{ padding: "8rem 2rem 2rem 2rem", backgroundColor: "#f2f2f2ff",justifyContent: "center",fontFamily: "Garamond, serif" }}>
+      <h1 style={{ color: "#ffffffff",fontSize: "30px", backgroundColor: "#F54927", display: "inline-block", padding: "10px 20px", borderRadius: "8px" }}>
         Graduated Startups
       </h1>
 

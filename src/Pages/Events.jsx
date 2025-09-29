@@ -93,7 +93,7 @@ const Events = () => {
   const allEvents = [upcomingEventsSection, ...monthlyEventsData];
 
   return (
-    <div style={{ padding: "80px" }}>
+    <div style={{ padding: "80px", fontFamily: "Garamond, serif" }}>
       {/* Unified Events Layout */}
       {allEvents.map((monthData, i) => (
         <div
@@ -103,6 +103,8 @@ const Events = () => {
             padding: "20px",
             background: "#e8e8e8", // alternate row background
             borderRadius: "10px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+            fontSize:"15px",
           }}
         >
           <div style={{ display: "flex", alignItems: "flex-start", gap: "30px" }}>

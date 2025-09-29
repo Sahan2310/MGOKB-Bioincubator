@@ -36,16 +36,20 @@ const WhyUsCombined = () => {
       <style>{`
         .why-us-container {
           max-width: 1100px;
+          font-family: Garamond, serif;
           width: 100%;
           margin: 40px auto;
           padding: 20px;
         }
 
         .why-us-container h1 {
-          font-size: 2.5rem;
-          color: #000000;
+          font-size: 30px;
+          background-color: #F54927;
+          display: inline-block;
+          padding: 10px 20px;
+          border-radius: 8px;
+          color: #ffffffff;
           margin-bottom: 2rem;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         .why-us-content {
@@ -114,6 +118,8 @@ const WhyUsCombined = () => {
           border-bottom: 1px solid #e0e0e0;
           border-bottom-left-radius: 10px;
           border-bottom-right-radius: 10px;
+          font-family: Garamond, serif;
+          font-size: 20px;
         }
 
         .accordion-content p {

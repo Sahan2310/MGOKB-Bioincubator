@@ -1,10 +1,60 @@
 // Partners.jsx
 import React, { useState } from "react";
 
+// CSS styles at the top
+const containerStyle = {
+  textAlign: "center",
+  fontFamily: "Garamond, serif",
+  margin: "40px 40px",
+};
+
+const headingStyle = {
+  textAlign: "center",
+  backgroundColor: "#F54927",
+  display: "inline-block",
+  padding: "10px 20px",
+  borderRadius: "8px",
+  color: "#ffffff",
+  fontSize: 30,
+};
+
+// For tabs
+const tabsContainerStyle = {
+  display: "flex",
+  justifyContent: "flex-start",
+  marginTop: "30px",
+};
+
+const tabStyle = (isActive) => ({
+  margin: "0 20px 0 0",
+  fontWeight: isActive ? "bold" : "normal",
+  color: isActive ? "#FF5722" : "#000",
+  cursor: "pointer",
+  fontSize: "20px",
+  fontFamily: "Garamond, serif",
+  paddingBottom: "5px",
+});
+
+// For logos
+const logosContainerStyle = {
+  display: "flex",
+  justifyContent: "center",
+  flexWrap: "wrap",
+  marginTop: "30px",
+};
+
+const logoStyle = {
+  margin: "20px",
+  width: "150px",
+  height: "auto",
+  transition: "transform 0.3s ease",
+};
+
+// Component
 const Partners = () => {
   const [activeTab, setActiveTab] = useState("academic");
 
-  // Logos for each category (replace with your own images)
+  // Logos for each category
   const logos = {
     academic: ["/images/birac.png", "/images/ncl.png"],
     industry: ["/images/industry1.png", "/images/industry2.png"],
@@ -12,37 +62,21 @@ const Partners = () => {
   };
 
   const tabs = [
-    { key: "academic", label: "ACADEMIC COLLABORATOR" },
-    { key: "industry", label: "INDUSTRY PARTNERS" },
-    { key: "government", label: "GOVERNMENT INITIATIVES" },
+    { key: "academic", label: "Academic Collaborator" },
+    { key: "industry", label: "Industry Partners" },
+    { key: "government", label: "Government Initiatives" },
   ];
 
-  const tabStyle = (key) => ({
-    margin: "0 20px 0 0",
-    padding: "10px 0",
-    fontWeight: activeTab === key ? "bold" : "normal",
-    color: activeTab === key ? "#FF5722" : "#000",
-    cursor: "pointer",
-    borderBottom: activeTab === key ? "2px solid #00BCD4" : "2px solid transparent",
-  });
-
-  const logoStyle = {
-    margin: "20px",
-    width: "150px",
-    height: "auto",
-    transition: "transform 0.3s ease",
-  };
-
   return (
-    <div style={{ textAlign: "center", padding: "50px", fontFamily: "Arial, sans-serif" }}>
-      <h2 style={{ color: "#003366" }}>Partners</h2>
+    <div style={containerStyle}>
+      <h2 style={headingStyle}>Our Partners</h2>
 
       {/* Tabs */}
-      <div style={{ display: "flex", justifyContent: "flex-start", marginTop: "30px" }}>
+      <div style={tabsContainerStyle}>
         {tabs.map((tab) => (
           <div
             key={tab.key}
-            style={tabStyle(tab.key)}
+            style={tabStyle(activeTab === tab.key)}
             onClick={() => setActiveTab(tab.key)}
           >
             {tab.label}
@@ -50,8 +84,8 @@ const Partners = () => {
         ))}
       </div>
 
-      {/* Logos centered */}
-      <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", marginTop: "30px" }}>
+      {/* Logos */}
+      <div style={logosContainerStyle}>
         {logos[activeTab].map((logo, index) => (
           <img
             key={index}

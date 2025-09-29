@@ -127,17 +127,17 @@ const Homepage = () => {
           `}
         </style>
         <Aim/>
-        <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
+        <hr style={{ border: "none", borderTop: "2px solid #000000ff", margin: "50px auto", width: "80%" }} />
         <WhyUs />
-        <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
+        <hr style={{ border: "none", borderTop: "2px solid #000000ff", margin: "50px auto", width: "80%" }} />
         <Impact />
-        <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
+        <hr style={{ border: "none", borderTop: "2px solid #000000ff", margin: "50px auto", width: "80%" }} />
         <ThurstAreas/>
-        <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
+        <hr style={{ border: "none", borderTop: "2px solid #000000ff", margin: "50px auto", width: "80%" }} />
         <Gallery />
-        <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
+        <hr style={{ border: "none", borderTop: "2px solid #000000ff", margin: "50px auto", width: "80%" }} />
         <Partners />
-        <hr style={{ border: "none", borderTop: "2px solid #0b2c61", margin: "50px auto", width: "80%" }} />
+        <hr style={{ border: "none", borderTop: "2px solid #000000ff", margin: "50px auto", width: "80%" }} />
 
         <Testimonial />
       </div>

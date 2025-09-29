@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-// Counter animation
 const Counter = ({ endValue, duration, text }) => {
   const [count, setCount] = useState(0);
 
@@ -21,134 +20,92 @@ const Counter = ({ endValue, duration, text }) => {
   return <span>{count}{text}</span>;
 };
 
-const Impact = () => {
+const OurAimImpact = () => {
+  const impactData = [
+    { endValue: 974, duration: 2000, text: "Cr+", label: "Grants To Start-Ups", logo: "/images/bulb.jpg" },
+    { endValue: 70, duration: 2000, text: "+", label: "Start-Ups", logo: "/images/startup.jpg" },
+    { endValue: 40, duration: 2500, text: "+", label: "Technology Supported", logo: "/images/Technology.jpg" },
+    { endValue: 154, duration: 2000, text: "Cr+", label: "Grants to Incubator", logo: "/images/Money.jpg" },
+    { endValue: 730, duration: 2000, text: "+", label: "Paid Members", logo: "/images/Members.jpg" },
+    { endValue: 40, duration: 2000, text: "+", label: "Women led Start-Ups", logo: "/images/Women.jpg" }
+  ];
+
   return (
-    <div className="impact-section">
-      {/* Inline CSS */}
+    <div className="aimimpact-container">
       <style>{`
-        .impact-section {
-          background-color: #f2f2f2ff;
-          color: white;
-          text-align: center;
-        }
-
-        .impact-title {
-          font-size: 40px;
-          font-weight: bold;
-          margin-bottom: 40px;
-          color: #000000;
-        }
-
         .impact-grid {
-          display: flex;
-          justify-content: center;
-          gap: 20px;
-          flex-wrap: wrap;
-          max-width: 1200px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+          max-width: 800px;
           margin: 0 auto;
+          font-size:20px
         }
 
-        .impact-card {
-          flex: 1 1 200px;
+        .impact-item {
+          background-color: #f9f9f9;
+          padding: 25px 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+
+        .impact-item .logo {
+          width: 100px;
+          height: 100px;
+          margin-right: 15px;
+          object-fit: contain;
+        }
+
+        .impact-item .content-wrapper {
           display: flex;
           flex-direction: column;
-          align-items: center;
-          text-align: center;
-          padding: 20px;
-          max-width: 220px;
+          align-items: flex-end; /* Text aligned to right */
+          flex-grow: 1; /* Take remaining space */
+          text-align: right; /* Ensure inner text is right-aligned */
         }
 
-        .impact-icon-wrapper {
-          width: 90px;
-          height: 90px;
-          background-color: white;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-bottom: 15px;
-          border: 5px solid transparent;
-          transition: border 0.3s;
-          cursor: pointer;
-        }
-
-        .impact-icon-wrapper:hover {
-          border: 5px solid #F54927;
-        }
-
-        .impact-icon {
-          width: 70%;
-          height: 70%;
-        }
-
-        .impact-number {
-          font-size: 36px;
+        .impact-item .counter-value {
+          font-size: 48px;
           font-weight: bold;
-          margin-top: 10px;
-          color: #000000;
+          color: #F54927;
         }
 
-        .impact-text {
+        .impact-item .counter-label {
+          margin-top: 5px;
           font-size: 18px;
-          line-height: 1.4;
-          color: #000000;
+          color: #000000ff;
+        }
+
+        @media (max-width: 768px) {
+          .impact-grid {
+            grid-template-columns: 1fr;
+          }
         }
       `}</style>
 
-      <h2 className="impact-title">Impact</h2>
+      <h2 className="aimimpact-header">Our Impact</h2>
       <div className="impact-grid">
-        <div className="impact-card">
-          <div className="impact-icon-wrapper">
-            <img src="/images/bulb.jpg" alt="Lightbulb Icon" className="impact-icon" />
+        {impactData.map((item, index) => (
+          <div key={index} className="impact-item">
+            <img src={item.logo} alt={item.label} className="logo" />
+            <div className="content-wrapper">
+              <div className="counter-value">
+                <Counter
+                  endValue={item.endValue}
+                  duration={item.duration}
+                  text={item.text}
+                />
+              </div>
+              <p className="counter-label">{item.label}</p>
+            </div>
           </div>
-          <div className="impact-number">
-            <Counter endValue={974} duration={2000} text=" Cr+" />
-          </div>
-          <div className="impact-text">Grants to Start-ups</div>
-        </div>
-
-        <div className="impact-card">
-          <div className="impact-icon-wrapper">
-            <img src="/images/Startup.jpg" alt="Money Bag Icon" className="impact-icon" />
-          </div>
-          <div className="impact-number">
-            <Counter endValue={70} duration={2000} text="" />
-          </div>
-          <div className="impact-text">Total startups</div>
-        </div>
-
-        <div className="impact-card">
-          <div className="impact-icon-wrapper">
-            <img src="/images/Technology.jpg" alt="Star Icon" className="impact-icon" />
-          </div>
-          <div className="impact-number">
-            <Counter endValue={40} duration={2000} text="" />
-          </div>
-          <div className="impact-text">Technology Supported</div>
-        </div>
-
-        <div className="impact-card">
-          <div className="impact-icon-wrapper">
-            <img src="/images/Members.jpg" alt="Patents Icon" className="impact-icon" />
-          </div>
-          <div className="impact-number">
-            <Counter endValue={154} duration={2000} text="" />
-          </div>
-          <div className="impact-text">Paid Members</div>
-        </div>
-
-        <div className="impact-card">
-          <div className="impact-icon-wrapper">
-            <img src="/images/women.jpg" alt="Women Icon" className="impact-icon" />
-          </div>
-          <div className="impact-number">
-            <Counter endValue={40} duration={2000} text="" />
-          </div>
-          <div className="impact-text">Women-Led Startups</div>
-        </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default Impact;
+export default OurAimImpact;

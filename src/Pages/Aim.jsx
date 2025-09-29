@@ -17,7 +17,12 @@ const Counter = ({ endValue, duration, text }) => {
     window.requestAnimationFrame(step);
   }, [endValue, duration]);
 
-  return <span>{count}{text}</span>;
+  return (
+    <span>
+      {count}
+      {text}
+    </span>
+  );
 };
 
 const OurAimImpact = () => {
@@ -25,13 +30,13 @@ const OurAimImpact = () => {
 
   const aimData = [
     {
-      front: "Our Vision",
-      back: "To transform innovative ideas or technology to an enterprise through strategic implementation along with adequate mentoring through eminent incubation service and affordable high-end incubation facilities."
+      frontLogo: "/images/vision.png", 
+      back: "To transform innovative ideas or technology to an enterprise through strategic implementation along with adequate mentoring through eminent incubation service and affordable high-end incubation facilities.",
     },
     {
-      front: "Our Mission",
-      back: "To create an entrepreneurship ecosystem with professional services that aids the transformation of innovative ideas to scalable technology and knowledge-based enterprises."
-    }
+      frontLogo: "/images/mission.png",
+      back: "To create an entrepreneurship ecosystem with professional services that aids the transformation of innovative ideas to scalable technology and knowledge-based enterprises.",
+    },
   ];
 
   return (
@@ -39,17 +44,21 @@ const OurAimImpact = () => {
       <style>{`
         .aimimpact-container {
           text-align: center;
-          font-family: "Times New Roman", Serif;
-          color:00000fff;
+          font-family: Garamond, serif;
+          color: #000000ff;
         }
 
         .aimimpact-header {
-          font-size: 30px;
+          font-size: 35px;
           font-weight: bold;
-          color: #000000ff;
+          color: #ffffff;
           margin-bottom: 20px;
+          background-color: #F54927;
+          display: inline-block;
+          padding: 10px 20px;
+          border-radius: 8px;
         }
-          
+
         .aim-flipcards {
           display: flex;
           justify-content: center;
@@ -59,7 +68,6 @@ const OurAimImpact = () => {
         }
 
         .aim-card {
-          background-color: #F54927;
           width: 300px;
           height: 200px;
           perspective: 1200px;
@@ -93,9 +101,10 @@ const OurAimImpact = () => {
           align-items: center;
           color: white;
           font-weight: bold;
-          font-size: 18px;
+          font-size: 20px;
           padding: 10px;
           box-sizing: border-box;
+          background-color: #F54927;
         }
 
         .aim-card-back {
@@ -104,73 +113,11 @@ const OurAimImpact = () => {
           color: #ffffff;
         }
 
-        .impact-section {
-          background-color: #f2f2f2ff;
-          color: white;
-          text-align: center;
-          margin-top: 60px;
-        }
-
-        .impact-title {
-          font-size: 40px;
-          font-weight: bold;
-          margin-bottom: 40px;
-          color: #0b2c61;
-        }
-
-        .impact-grid {
-          display: flex;
-          justify-content: center;
-          gap: 20px;
-          flex-wrap: wrap;
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .impact-card {
-          flex: 1 1 200px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          padding: 20px;
-          max-width: 220px;
-        }
-
-        .impact-icon-wrapper {
-          width: 90px;
-          height: 90px;
-          background-color: white;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-bottom: 15px;
-          border: 5px solid transparent;
-          transition: border 0.3s;
-          cursor: pointer;
-        }
-
-        .impact-icon-wrapper:hover {
-          border: 5px solid #0b2c61;
-        }
-
-        .impact-icon {
-          width: 70%;
-          height: 70%;
-        }
-
-        .impact-number {
-          font-size: 36px;
-          font-weight: bold;
-          margin-top: 10px;
-          color: #0b2c61;
-        }
-
-        .impact-text {
-          font-size: 18px;
-          line-height: 1.4;
-          color: #0b2c61;
+        /* Added for logo styling */
+        .aim-card-front img {
+          max-width: 40%;
+          max-height: 40%;
+          object-fit: contain;
         }
       `}</style>
 
@@ -185,9 +132,13 @@ const OurAimImpact = () => {
             onMouseLeave={() => setHoveredCard(null)}
           >
             <div
-              className={`aim-card-inner ${hoveredCard === index ? "hovered" : ""}`}
+              className={`aim-card-inner ${
+                hoveredCard === index ? "hovered" : ""
+              }`}
             >
-              <div className="aim-card-front">{item.front}</div>
+              <div className="aim-card-front">
+                <img src={item.frontLogo} alt={`logo-${index}`} />
+              </div>
               <div className="aim-card-back">{item.back}</div>
             </div>
           </div>

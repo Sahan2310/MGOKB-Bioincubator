@@ -35,8 +35,13 @@ const Testimonials = () => {
           .testimonials-title {
             font-size: 30px;
             font-weight: bold;
-            color: #000000;
+            color: #ffffffff;
             margin-bottom: 30px;
+            font-family: Garamond, serif;
+            background-color: #F54927;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 8px;
           }
 
           .testimonials-section {
@@ -78,11 +83,12 @@ const Testimonials = () => {
             margin: 10px 0 5px;
             font-weight: bold;
             color: #000000ff;
+            font-size: 20px;
           }
 
           .testimonial-company {
             margin: 10px 0 5px;
-            color: #000000ff;
+            color: #F54927;
             font-size: 15px;
           }
 

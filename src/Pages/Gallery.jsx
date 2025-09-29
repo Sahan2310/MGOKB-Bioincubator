@@ -34,6 +34,7 @@ const CompanyCards = () => {
             gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
+            font-family: Garamond, serif;
           }
 
           .card {
@@ -94,11 +95,21 @@ const CompanyCards = () => {
             font-size: 0.8rem;
             margin: 0;
           }
+            .card-header{
+            fontSize: "30px",
+            fontWeight: "bold",
+            color: "#ffffffff",
+            textAlign: "center",
+            backgroundColor: "#F54927",
+            display: "inline-block",
+            padding: "10px 20px",
+            borderRadius: "8px",
+  };}
         `}
       </style>
-
+ <h2 style={{ textAlign: "center", backgroundColor: "#F54927",display: "inline-block",padding: "10px 20px", borderRadius: "8px" ,color: "#ffffffff",fontSize:30 }}>Win Stories</h2>
       <div className="cards-container">
-        <h2 style={{ width: "100%", textAlign: "center", marginBottom: "10px", color: "#000000ff",fontSize:35 }}>Win Stories</h2>
+        
         {companies.map((c, i) => (
           <div className="card" key={i}>
             <img src={c.img} alt={c.title} className="card-image" />

@@ -14,32 +14,31 @@ const ThrustAreas = () => {
   const containerStyle = {
     backgroundColor: "#f2f2f2ff",
     textAlign: "center",
-    fontFamily: "Times New Roman, Serif",
-    paddingTop: "120px",
+    fontFamily: "Garamond, serif",
   };
 
   const headerStyle = {
-    padding: "0px 10px",
     fontSize: "30px",
-    borderRadius: "8px",
-    marginBottom: "30px",
-    marginTop: "2px",
     fontWeight: "bold",
-    color: "#000000ff",
+    color: "#ffffffff",
     textAlign: "center",
+    backgroundColor: "#F54927",
+    display: "inline-block",
+    padding: "10px 20px",
+    borderRadius: "8px",
   };
 
   const mainGridStyle = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: "10px",
+    gap: "60px",
   };
 
   const rowStyle = {
     display: "flex",
     justifyContent: "center",
-    gap: "10px",
+    gap: "60px",
   };
 
   const cardWrapperStyle = {
@@ -71,7 +70,7 @@ const ThrustAreas = () => {
   const titleStyle = {
     marginTop: "10px",
     fontWeight: "bold",
-    fontSize: "16px",
+    fontSize: "20px",
     color: "#000000ff",
     textAlign: "center",
   };
