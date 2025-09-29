@@ -7,6 +7,7 @@ import Impact from "./Impact";
 import Testimonial from "./Testimonial";
 import ThurstAreas from "./ThrustAreas";
 import Partners from "./Partners";
+import PopUps from "./PopUp";
 
 
 const supportedByData = [
@@ -126,6 +127,7 @@ const Homepage = () => {
             }
           `}
         </style>
+        <PopUps/>
         <Aim/>
         <hr style={{ border: "none", borderTop: "2px solid #000000ff", margin: "50px auto", width: "80%" }} />
         <WhyUs />
