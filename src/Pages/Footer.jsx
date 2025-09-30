@@ -4,7 +4,7 @@ const Footer = () => {
   const footerStyle = {
     background: "black",
     color: "#ffffff",
-    padding: "40px 20px",
+    padding: "10px 10px",
     fontFamily: "Garamond, serif",
   };
 
@@ -19,7 +19,7 @@ const Footer = () => {
   };
 
   const columnHeaderStyle = {
-    color: "#ffffff",
+    color: "#ff6600",
     fontSize: "27px",
   };
 
@@ -56,7 +56,7 @@ const Footer = () => {
 
   const buttonStyle = {
     padding: "8px",
-    backgroundColor: "#F54927",
+    backgroundColor: "#ff6600",
     color: "white",
     border: "none",
     borderRadius: "4px",
@@ -129,10 +129,10 @@ const Footer = () => {
           <h4 style={columnHeaderStyle}>Contact</h4>
           <p style={pStyle}>Manipal-GOK Bioincubator</p>
           <p style={pStyle}>Manipal Academy of Higher Education Manipal, Karnataka- 576104</p>
-          <p style={pStyle}>📞 0820-2937724</p>
-          <p style={pStyle}>📧 manipal.gokbioincubator@gmail.com</p>
-          <p style={pStyle}>📧 bioincubator@manipal.edu</p>
-          <p style={pStyle}>🌍 bioincubator.manipal.edu</p>
+          <p style={pStyle}>📞0820-2937724</p>
+          <p style={pStyle}>📧manipal.gokbioincubator@gmail.com</p>
+          <p style={pStyle}>📧bioincubator@manipal.edu</p>
+          <p style={pStyle}>🌍bioincubator.manipal.edu</p>
 
           <div className="newsletter" style={newsletterStyle}>
             <h4>Newsletter Signup</h4>

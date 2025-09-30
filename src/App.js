@@ -9,6 +9,7 @@ import Incubated from "./Pages/Incubated";
 import About from "./Pages/About";
 import Events from "./Pages/Events";
 import WhyUs from "./Pages/whyus";
+import TeamPage from "./Pages/TeamPage";  
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/events" element={<Events />} />
         <Route path="/whyus" element={<WhyUs />} />
+        <Route path="/team" element={<TeamPage />} />
         {/* add more routes */}
       </Routes>
     </Router>

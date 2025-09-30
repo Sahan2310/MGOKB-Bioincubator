@@ -38,7 +38,7 @@ const Testimonials = () => {
             color: #ffffffff;
             margin-bottom: 30px;
             font-family: Garamond, serif;
-            background-color: #F54927;
+            background-color: #ff6600;
             display: inline-block;
             padding: 10px 20px;
             border-radius: 8px;
@@ -88,7 +88,7 @@ const Testimonials = () => {
 
           .testimonial-company {
             margin: 10px 0 5px;
-            color: #F54927;
+            color: #ff6600;
             font-size: 15px;
           }
 

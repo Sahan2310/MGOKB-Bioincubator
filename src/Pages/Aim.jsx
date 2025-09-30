@@ -53,7 +53,7 @@ const OurAimImpact = () => {
           font-weight: bold;
           color: #ffffff;
           margin-bottom: 20px;
-          background-color: #F54927;
+          background-color: #ff6600;
           display: inline-block;
           padding: 10px 20px;
           border-radius: 8px;
@@ -104,11 +104,11 @@ const OurAimImpact = () => {
           font-size: 20px;
           padding: 10px;
           box-sizing: border-box;
-          background-color: #F54927;
+          background-color: #ff6600;
         }
 
         .aim-card-back {
-          background-color: #F54927;
+          background-color: #ff6600;
           transform: rotateY(180deg);
           color: #ffffff;
         }

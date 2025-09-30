@@ -100,14 +100,14 @@ const CompanyCards = () => {
             fontWeight: "bold",
             color: "#ffffffff",
             textAlign: "center",
-            backgroundColor: "#F54927",
+            backgroundColor: "#ff6600",
             display: "inline-block",
             padding: "10px 20px",
             borderRadius: "8px",
   };}
         `}
       </style>
- <h2 style={{ textAlign: "center", backgroundColor: "#F54927",display: "inline-block",padding: "10px 20px", borderRadius: "8px" ,color: "#ffffffff",fontSize:30 }}>Win Stories</h2>
+ <h2 style={{ textAlign: "center", backgroundColor: "#ff6600",display: "inline-block",padding: "10px 20px", borderRadius: "8px" ,color: "#ffffffff",fontSize:30 }}>Win Stories</h2>
       <div className="cards-container">
         
         {companies.map((c, i) => (

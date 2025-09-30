@@ -37,14 +37,14 @@ const WhyUsCombined = () => {
         .why-us-container {
           max-width: 1100px;
           font-family: Garamond, serif;
-          width: 100%;
-          margin: 40px auto;
-          padding: 20px;
+          width: 200%;
+          justify-content: center;
+          margin: 0 auto;
         }
 
         .why-us-container h1 {
           font-size: 30px;
-          background-color: #F54927;
+          background-color: #ff6600;
           display: inline-block;
           padding: 10px 20px;
           border-radius: 8px;
@@ -127,7 +127,7 @@ const WhyUsCombined = () => {
         }
 
         .accordion-item.active .accordion-header {
-          background-color: #F54927;
+          background-color: #ff6600;
           border-color: #0b2c61;
           color: #ffffff;
           border-bottom-left-radius: 0;
@@ -142,7 +142,7 @@ const WhyUsCombined = () => {
         .icon {
           width: 28px;
           height: 28px;
-          border: 2px solid #F54927;
+          border: 2px solid #ff6600;
           border-radius: 50%;
           display: flex;
           justify-content: center;
@@ -154,8 +154,8 @@ const WhyUsCombined = () => {
           content: '';
           width: 10px;
           height: 10px;
-          border-left: 2px solid #F54927;
-          border-bottom: 2px solid #F54927;
+          border-left: 2px solid #ff6600;
+          border-bottom: 2px solid #ff6600;
           transform: rotate(-45deg);
           transition: border-color 0.3s ease;
         }

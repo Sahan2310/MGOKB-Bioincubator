@@ -291,8 +291,8 @@ function Incubated() {
   };
 
   return (
-    <div style={{ padding: "8rem 2rem 2rem 2rem", backgroundColor: "#f2f2f2ff",fontFamily: "Garamond, serif", justifyContent: "center" }}>
-      <h1 style={{ color: "#ffffffff",fontSize: "30px", backgroundColor: "#F54927", display: "inline-block", padding: "10px 20px", borderRadius: "8px" }}>
+    <div style={{ padding: "8rem 2rem 2rem 2rem", background: "linear-gradient(to bottom, rgba(255, 136, 0, 1), rgba(247, 247, 247, 0.7))", fontFamily: "Garamond, serif", justifyContent: "center" }}>
+      <h1 style={{ color: "#ffffffff",fontSize: "30px", backgroundColor: "#ff6600", display: "inline-block", padding: "10px 20px", borderRadius: "8px" }}>
         Incubated Startups
       </h1>
 
@@ -350,7 +350,7 @@ function Incubated() {
               borderRadius: "5px",
               border: "none",
               cursor: "pointer",
-              backgroundColor: "#F54927",
+              backgroundColor: "#ff6600",
               color: "#fff",
             }}
           >

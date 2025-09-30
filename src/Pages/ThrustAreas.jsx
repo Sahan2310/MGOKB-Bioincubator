@@ -12,7 +12,6 @@ const thrustAreasData = [
 const ThrustAreas = () => {
   // Inline styles
   const containerStyle = {
-    backgroundColor: "#f2f2f2ff",
     textAlign: "center",
     fontFamily: "Garamond, serif",
   };
@@ -22,7 +21,7 @@ const ThrustAreas = () => {
     fontWeight: "bold",
     color: "#ffffffff",
     textAlign: "center",
-    backgroundColor: "#F54927",
+    backgroundColor: "#ff6600",
     display: "inline-block",
     padding: "10px 20px",
     borderRadius: "8px",
@@ -86,7 +85,7 @@ const ThrustAreas = () => {
               <div
                 style={cardStyle}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.border = "5px solid #F54927")
+                  (e.currentTarget.style.border = "5px solid #ff6600")
                 }
                 onMouseLeave={(e) =>
                   (e.currentTarget.style.border = "5px solid transparent")
@@ -106,7 +105,7 @@ const ThrustAreas = () => {
               <div
                 style={cardStyle}
                 onMouseEnter={(e) =>
-                  (e.currentTarget.style.border = "5px solid #F54927")
+                  (e.currentTarget.style.border = "5px solid #ff6600")
                 }
                 onMouseLeave={(e) =>
                   (e.currentTarget.style.border = "5px solid transparent")

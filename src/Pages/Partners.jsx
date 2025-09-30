@@ -10,7 +10,7 @@ const containerStyle = {
 
 const headingStyle = {
   textAlign: "center",
-  backgroundColor: "#F54927",
+  backgroundColor: "#ff6600",
   display: "inline-block",
   padding: "10px 20px",
   borderRadius: "8px",
@@ -28,7 +28,7 @@ const tabsContainerStyle = {
 const tabStyle = (isActive) => ({
   margin: "0 20px 0 0",
   fontWeight: isActive ? "bold" : "normal",
-  color: isActive ? "#FF5722" : "#000",
+  color: isActive ? "#ff6600" : "#000",
   cursor: "pointer",
   fontSize: "20px",
   fontFamily: "Garamond, serif",

@@ -85,7 +85,7 @@ const BootcampPopup = () => {
   };
 
   const registerBtnStyle = {
-    background: "#f54927",
+    background: "#ff6600",
     color: "white",
     padding: "10px 20px",
     borderRadius: "8px",

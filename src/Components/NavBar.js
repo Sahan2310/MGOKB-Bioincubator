@@ -10,7 +10,7 @@ const Navbar = () => {
     alignItems: "center",
     justifyContent: "space-between",
     padding: "0px 30px",
-    backgroundColor: "#F54927",
+    backgroundColor: "#ff6600",
     position: "fixed",
     top: 0,
     left: 0,
@@ -53,7 +53,7 @@ const Navbar = () => {
   };
 
   const dropdownButtonStyle = {
-    background: "#F54927",
+    background: "#ff6600",
     color: "#fff",
     border: "none",
     padding: "10px 15px",
@@ -71,7 +71,7 @@ const Navbar = () => {
   };
 
   const handleMouseLeave = (e) => {
-    e.currentTarget.style.background = "#F54927"; // default color
+    e.currentTarget.style.background = "#ff6600"; // default color
   };
 
   return (
