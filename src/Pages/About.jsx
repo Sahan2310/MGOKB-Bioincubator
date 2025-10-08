@@ -4,15 +4,16 @@ const About = () => {
   const sectionStyle = {
     position: "relative",
     width: "100%",
-    height: "800px",
-    backgroundImage: "url('/images/ASR.jpg')", 
+    minHeight: "800px",
+    backgroundImage: "url('/images/ASR.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    textAlign: "LEFT",
+    textAlign: "left",
     color: "white",
+    padding: "50px 0",
   };
 
   const overlayStyle = {
@@ -21,7 +22,8 @@ const About = () => {
     left: 0,
     width: "100%",
     height: "100%",
-    background:"linear-gradient(to bottom, rgba(255, 136, 0, 1), rgba(247, 247, 247, 0.7))", // gradient overlay
+    background:
+      "linear-gradient(to bottom, rgba(255, 136, 0, 1), rgba(247, 247, 247, 0.7))",
     zIndex: 1,
   };
 
@@ -29,6 +31,9 @@ const About = () => {
     position: "relative",
     zIndex: 2,
     maxWidth: "1110px",
+    backgroundColor: "rgba(0,0,0,0.3)",
+    padding: "20px",
+    borderRadius: "10px",
   };
 
   const headingStyle = {
@@ -40,7 +45,9 @@ const About = () => {
   const paragraphStyle = {
     fontSize: "1.1rem",
     lineHeight: "1.6",
+    marginBottom: "15px",
   };
+
 
   return (
     <section style={sectionStyle}>
